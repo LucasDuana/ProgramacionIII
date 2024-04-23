@@ -2,10 +2,11 @@ package tp1;
 
 import com.sun.source.tree.LiteralTree;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class LinkedList<T> implements Iterable<T> {
+public class LinkedList<T extends Comparable<T>> implements Iterable<T> {
 
     Node<T> first;
     int size;
@@ -103,6 +104,8 @@ public class LinkedList<T> implements Iterable<T> {
             System.out.println(iterator.next()+ " ->");
         }
     }
+
+
 
     public Iterator<T> iterator(){
         return new LinkedListIterator();
