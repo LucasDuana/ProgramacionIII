@@ -167,6 +167,41 @@ public class Main {
 
     }
 
+    // Método para realizar el particionado del arreglo
+    public static int particion(int[] arr, int inicio, int fin) {
+        int pivote = arr[fin];
+        int i = inicio - 1;
+
+        for (int j = inicio; j < fin; j++) {
+            if (arr[j] < pivote) {
+                i++;
+                // Intercambiar arr[i] y arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        // Intercambiar arr[i+1] y arr[fin] (pivote)
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[fin];
+        arr[fin] = temp;
+
+        return i + 1;
+    }
+
+    // Método recursivo para realizar el ordenamiento Quicksort
+    public static void quickSort(int[] arr, int inicio, int fin) {
+        if (inicio < fin) {
+            // Obtener el índice del pivote
+            int indicePivote = particion(arr, inicio, fin);
+
+            // Ordenar los elementos antes y después del pivote
+            quickSort(arr, inicio, indicePivote - 1);
+            quickSort(arr, indicePivote + 1, fin);
+        }
+    }
+
 
 
 }
