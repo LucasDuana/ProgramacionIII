@@ -23,7 +23,6 @@ public class CicloDirigido {
             Integer verticeId = iteradorVertices.next();
             if (!visitados.contains(verticeId)) {
                 if (dfs(verticeId,new ArrayList<>())) {
-                    Collections.reverse(ciclo); // Invertir el ciclo para que esté en el orden correcto
                     return ciclo; // Devolver el ciclo encontrado
                 }
             }

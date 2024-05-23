@@ -161,25 +161,17 @@ public class Main {
         grafo.agregarVertice(2);
         grafo.agregarVertice(3);
         grafo.agregarVertice(4);
-        grafo.agregarArco(1, 2, 0); // Agregar arcos para formar un ciclo
-        grafo.agregarArco(2, 3, 0);
-        grafo.agregarArco(3, 4, 0);
-        grafo.agregarArco(4, 1, 0);
+        grafo.agregarArco(1,4,25);
+        grafo.agregarArco(1,2,25);
+        grafo.agregarArco(1,4,25);
+        grafo.agregarArco(4,3,25);
+        grafo.agregarArco(3,1,25);
 
-        // Crear un objeto CicloEnGrafoDirigido y encontrar un ciclo en el grafo
-        CicloDirigido detectorCiclo = new CicloDirigido(grafo);
-        List<Integer> ciclo = detectorCiclo.encontrarCiclo();
+        CicloDirigido ciclo=new CicloDirigido(grafo);
 
-        // Imprimir el ciclo encontrado
-        if (ciclo != null) {
-            System.out.println("Se encontró un ciclo en el grafo:");
-            for (Integer vertice : ciclo) {
-                System.out.print(vertice + " ");
-            }
-            System.out.println();
-        } else {
-            System.out.println("No se encontró ningún ciclo en el grafo.");
-        }
+        List<Integer> res = ciclo.encontrarCiclo();
+
+        System.out.println(res);
 
 
 
